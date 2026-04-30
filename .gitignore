@@ -1,0 +1,3 @@
+# Root-level ignores (subfolders have their own .gitignore)
+.DS_Store
+.cursor/

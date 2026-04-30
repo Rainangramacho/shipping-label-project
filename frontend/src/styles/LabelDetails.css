@@ -1,0 +1,294 @@
+/* Label detail — preview & actions */
+.label-detail {
+  --ld-border: var(--border, #e5e4e7);
+  --ld-bg: var(--bg, #ffffff);
+  --ld-text: var(--text, #6b6375);
+  --ld-text-h: var(--text-h, #08060d);
+  --ld-accent: var(--accent, #9333ea);
+  --ld-accent-soft: var(--accent-bg, rgba(147, 51, 234, 0.12));
+  --ld-shadow: var(
+    --shadow,
+    rgba(0, 0, 0, 0.08) 0 8px 24px -4px,
+    rgba(0, 0, 0, 0.06) 0 4px 8px -2px
+  );
+
+  flex: 1;
+  width: 100%;
+  max-width: 920px;
+  margin-inline: auto;
+  padding: clamp(20px, 4vw, 36px) clamp(16px, 3vw, 24px) 48px;
+  box-sizing: border-box;
+  text-align: left;
+  font-family: var(--sans, system-ui, "Segoe UI", Roboto, sans-serif);
+  color: var(--ld-text);
+}
+
+.label-detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ld-accent);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.label-detail-back:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+.label-detail-header {
+  margin-bottom: 24px;
+}
+
+.label-detail-header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ld-text-h);
+}
+
+.label-detail-lede {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 150%;
+}
+
+.label-detail-inline-link {
+  color: var(--ld-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.label-detail-inline-link:hover {
+  text-decoration: underline;
+}
+
+.label-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  margin-top: 16px;
+}
+
+.label-detail-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.label-detail-meta-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ld-text);
+}
+
+.label-detail-meta-value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ld-text-h);
+  word-break: break-word;
+}
+
+.label-detail-meta-value--mono {
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 0.8125rem;
+}
+
+.label-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.label-detail-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 18px;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition:
+    filter 0.12s ease,
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.label-detail-btn--primary {
+  color: #fff;
+  background: linear-gradient(
+    165deg,
+    var(--ld-accent) 0%,
+    #7c22ce 100%
+  );
+  border-color: rgba(0, 0, 0, 0.06);
+  box-shadow:
+    rgba(120, 40, 200, 0.3) 0 4px 14px -3px,
+    rgba(0, 0, 0, 0.06) 0 2px 4px -1px;
+}
+
+.label-detail-btn--primary:hover {
+  filter: brightness(1.06);
+}
+
+.label-detail-btn--secondary {
+  color: var(--ld-text-h);
+  background: var(--ld-bg);
+  border-color: var(--ld-border);
+}
+
+.label-detail-btn--secondary:hover {
+  background: var(--ld-accent-soft);
+  border-color: var(--ld-accent);
+  color: var(--ld-accent);
+}
+
+.label-detail-btn:active {
+  transform: translateY(1px);
+}
+
+.label-detail-preview {
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  border: 1px solid var(--ld-border);
+  box-shadow: var(--ld-shadow);
+  background: var(--ld-bg);
+  max-height: min(92vh, 960px);
+  overflow: hidden;
+}
+
+/* Fixed viewport; JS scales iframe with transform so the whole preview fits (no scroll) */
+.label-detail-preview-viewport {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  height: min(72vh, 700px);
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+@media (prefers-color-scheme: dark) {
+  .label-detail-preview-viewport {
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+.label-detail-preview-clip {
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  background: #3a3d40;
+}
+
+.label-detail-preview-inner iframe {
+  display: block;
+  border: none;
+}
+
+.label-detail-preview-footer {
+  margin: 0;
+  flex: 0 0 auto;
+  padding: 12px 16px 16px;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--ld-text);
+  text-align: center;
+  border-top: 1px solid var(--ld-border);
+  background: var(--ld-bg);
+}
+
+.label-detail-preview-footer a {
+  color: var(--ld-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.label-detail-preview-footer a:hover {
+  text-decoration: underline;
+}
+
+.label-detail-loading,
+.label-detail-empty {
+  padding: clamp(40px, 10vw, 72px) 24px;
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--ld-text);
+}
+
+.label-detail-empty {
+  border: 1px dashed var(--ld-border);
+  border-radius: 14px;
+  background: var(--ld-accent-soft);
+}
+
+.label-detail-empty p {
+  margin: 0 0 20px;
+  max-width: 360px;
+  margin-inline: auto;
+  line-height: 150%;
+}
+
+.label-detail-empty-title {
+  margin: 0 0 8px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ld-text-h);
+}
+
+@media (prefers-color-scheme: dark) {
+  .label-detail {
+    --ld-border: var(--border, #2e303a);
+    --ld-bg: var(--bg, #16171d);
+    --ld-text: var(--text, #9ca3af);
+    --ld-text-h: var(--text-h, #f3f4f6);
+    --ld-accent: var(--accent, #c084fc);
+    --ld-accent-soft: var(--accent-bg, rgba(192, 132, 252, 0.15));
+  }
+
+  .label-detail-btn--primary {
+    box-shadow:
+      rgba(140, 80, 220, 0.28) 0 4px 18px -3px,
+      rgba(0, 0, 0, 0.35) 0 2px 4px -1px;
+  }
+}
+
+@media (max-width: 640px) {
+  .label-detail-preview {
+    max-height: min(94vh, 980px);
+  }
+
+  .label-detail-preview-viewport {
+    height: min(64vh, 560px);
+    min-height: 220px;
+    padding: 12px;
+  }
+}
