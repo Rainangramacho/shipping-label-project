@@ -3,22 +3,27 @@
 namespace App\Services;
 
 use App\Dtos\ShippingLabels\ShippingLabelCreateDTO;
-use App\Repositories\ShippingLabelRepository;
 use App\Models\ShippingLabel;
-use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Repositories\ShippingLabelRepository;
 
 class ShippingLabelService
 {
     public function __construct(
-        protected ShippingLabelRepository $repository)
-    {
-    }
+        protected ShippingLabelRepository $repository
+    ) {}
 
-    public function create(array $data): ShippingLabel
+    /**
+     * @param User $user
+     * @param array $data
+     * @return ShippingLabel
+     * @throws \Throwable
+     */
+    public function create(User $user, array $data): ShippingLabel
     {
         return $this->repository->create(
             new ShippingLabelCreateDTO(
-                user_id: Auth::user()->id,
+                user_id: $user->id,
                 to_address: $data['to_address'],
                 from_address: $data['from_address'],
                 weight: $data['weight'],

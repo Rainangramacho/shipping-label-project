@@ -53,7 +53,7 @@ cd shipping-project
 
 ---
 
-# 🐳 Backend (API)
+# ⚙️ Backend (API)
 
 ## 📁 Navigate to the folder
 
@@ -100,7 +100,7 @@ docker compose exec app php artisan key:generate
 
 ---
 
-## 🐳 Start containers
+## 🚀 Start containers
 
 ```bash
 docker compose up -d --build
