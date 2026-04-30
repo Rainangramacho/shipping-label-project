@@ -119,7 +119,7 @@ docker compose exec app php artisan migrate
 ## 🌐 Backend available at:
 
 ```
-http://localhost:8000
+http://localhost:8035
 ```
 
 ---

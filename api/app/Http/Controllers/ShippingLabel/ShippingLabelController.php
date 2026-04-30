@@ -9,7 +9,6 @@ use App\Http\Requests\ShippingLabelCreateRequest;
 use App\Repositories\ShippingLabelRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ShippingLabelController extends Controller
 {
@@ -22,12 +21,13 @@ class ShippingLabelController extends Controller
      * List the authenticated user's labels
      * @return JsonResponse
      */
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
-        $userId = Auth::user()->id;
-        $labels = $this->shippingLabelRepository->listLabelsByUserId($userId);
+        $label = $request->user()
+            ->shippingLabels()
+            ->get();
 
-        return response()->json($labels);
+        return response()->json($label);
     }
 
     /**
