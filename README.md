@@ -150,21 +150,6 @@ cd ../frontend
 
 ---
 
-## 🔐 Environment variables
-
-Create the `.env` file:
-
-```bash
-cp .env.example .env
-```
-
-Configure:
-
-```env
-VITE_API_URL=http://localhost:8000
-```
-
----
 
 ## 📦 Install dependencies
 
