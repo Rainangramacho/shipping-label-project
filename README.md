@@ -92,14 +92,6 @@ EASYPOST_API_KEY=your_api_key_here
 
 ---
 
-## 🔑 Generate app key
-
-```bash
-docker compose exec app php artisan key:generate
-```
-
----
-
 ## 🚀 Start containers
 
 ```bash
@@ -111,6 +103,24 @@ docker compose up -d --build
 ## 🗄️ Database
 
 MySQL is started with Docker (service `mysql` in `docker-compose.yaml`, container `shipping_database`). You do not need a local MySQL install. The `DB_*` settings in `.env` match that container.
+
+---
+
+## 📥 Install PHP dependencies
+
+```bash
+docker compose exec app composer install
+```
+
+Run this after the containers are up. The `vendor/` directory is not committed, so a fresh clone needs Composer inside the `app` container.
+
+---
+
+## 🔑 Generate app key
+
+```bash
+docker compose exec app php artisan key:generate
+```
 
 ---
 
