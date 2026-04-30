@@ -189,11 +189,12 @@ Make sure the backend is running before starting the frontend.
 # 🧪 Usage Flow
 
 1. Open the frontend
-2. Fill in the shipping data
-3. Create a shipping label
-4. View the generated label
-5. Print the label
-
+2. Create an account
+3. Log in to the application
+4. Fill in the shipping data
+5. Create a shipping label
+6. View the generated label
+7. Print the label
 ---
 
 # ⚠️ Common Issues
