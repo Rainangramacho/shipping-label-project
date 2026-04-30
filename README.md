@@ -108,6 +108,11 @@ docker compose up -d --build
 
 ---
 
+## 🗄️ Database
+
+MySQL is **started with Docker** (service `mysql` in `docker-compose.yaml`, container `shipping_database`). You do not need a local MySQL install. The `DB_*` settings in `.env` match that container.
+---
+
 ## 📦 Run migrations
 
 ```bash
