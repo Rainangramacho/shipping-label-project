@@ -237,7 +237,7 @@ docker logs shipping_database
 
 ---
 
-# 💡 Future Improvements
+# 💡 What I’d do next
 
 1. Implement rate limiting to prevent abuse and control API usage
 2. Introduce background jobs and queues to handle shipment creation asynchronously
@@ -246,6 +246,7 @@ docker logs shipping_database
 5. Integrate webhooks (EasyPost) for real-time tracking updates
 6. Add retry mechanisms for external API failures
 7. Support international shipping addresses
+8. Add more DTOs, create Resources and Unit/Integration tests
 
 ---
 
