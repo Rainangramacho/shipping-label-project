@@ -177,11 +177,7 @@ http://localhost:5173
 
 # 🔗 Integration
 
-The frontend communicates with the backend using:
-
-```
-VITE_API_URL
-```
+The frontend communicates with the backend using localhost.
 
 Make sure the backend is running before starting the frontend.
 
