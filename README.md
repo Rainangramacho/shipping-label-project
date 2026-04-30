@@ -92,27 +92,35 @@ EASYPOST_API_KEY=your_api_key_here
 
 ---
 
+## 📥 Install PHP dependencies
+
+The `vendor/` directory is not in Git. The `app` service runs `php artisan serve`, which needs `vendor/`—so on a **fresh clone** install Composer packages **before** bringing the stack up:
+
+```bash
+docker compose build
+docker compose run --rm --no-deps app composer install
+```
+
+- `run` uses a one-off container with the project mounted; the long-running `app` service does not need to be up yet.  
+- `--no-deps` skips MySQL; Composer does not need the database.
+
+After `vendor/` exists, use `docker compose exec app composer …` whenever `app` is running (for example `composer require …`).
+
+---
+
 ## 🚀 Start containers
 
 ```bash
-docker compose up -d --build
+docker compose up -d
 ```
+
+Use `docker compose up -d --build` when you change the Dockerfile or `docker-compose.yaml`.
 
 ---
 
 ## 🗄️ Database
 
 MySQL is started with Docker (service `mysql` in `docker-compose.yaml`, container `shipping_database`). You do not need a local MySQL install. The `DB_*` settings in `.env` match that container.
-
----
-
-## 📥 Install PHP dependencies
-
-```bash
-docker compose exec app composer install
-```
-
-Run this after the containers are up. The `vendor/` directory is not committed, so a fresh clone needs Composer inside the `app` container.
 
 ---
 
