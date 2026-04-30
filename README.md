@@ -247,6 +247,7 @@ docker logs shipping_database
 4. Implement shipment status lifecycle (pending, processing, completed, failed)
 5. Integrate webhooks (EasyPost) for real-time tracking updates
 6. Add retry mechanisms for external API failures
+7. Support international shipping addresses
 
 ---
 
